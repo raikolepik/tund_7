@@ -2,6 +2,13 @@
 	//edit.php
 	
 	require_once("edit_functions.php");
+	    
+		
+		//Kasutaja muudab andmeid
+    if(isset($_GET["update"])){
+        //auto id, auto number, auto värv
+        updateCarData($_GET["car_id"], $_GET["number_plate"], $_GET["color"]);
+    }
 	
 	//kas muutuja on aadressireal 
 	if(isset($_GET["edit_id"])){
@@ -27,7 +34,7 @@
 	
 ?>
 <!-- Salvestamiseks kasutan table.php rida 15, updatecar() -->
-<form action="table.php" method="get" >
+<form action="edit.php" method="get" >
 	<input name="car_id"type="hidden" value="<?=$_GET["edit_id"];?>">
 	<input name="number_plate" type="text" value="<?=$car->number_plate;?>">
 	<input name="color" type="text" value="<?=$car->color;?>">
